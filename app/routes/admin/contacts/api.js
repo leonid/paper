@@ -1,5 +1,5 @@
-import { Resource } from 'app/util/Resource';
-import casual from 'app/util/casual';
+import { Resource } from 'app/util/Resource'
+import casual from 'app/util/casual'
 
 const contactData = Array.from({length: 100}, (_, index) => {
     var firstName = casual.first_name,

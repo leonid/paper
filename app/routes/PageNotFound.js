@@ -1,4 +1,4 @@
-import { HtmlElement } from 'cx/ui/HtmlElement';
+import { HtmlElement } from 'cx/ui/HtmlElement'
 import { Link } from 'cx/ui/nav/Link'
 
 export const PageNotFound = <cx>

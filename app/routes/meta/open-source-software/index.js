@@ -1,8 +1,8 @@
-import { HtmlElement } from 'cx/ui/HtmlElement';
-import { Controller } from 'cx/ui/Controller';
-import { Link } from 'cx/ui/nav/Link';
-import { MessageLayout } from 'app/layouts/MessageLayout';
-import { Md } from 'app/components/Md';
+import { HtmlElement } from 'cx/ui/HtmlElement'
+import { Controller } from 'cx/ui/Controller'
+import { Link } from 'cx/ui/nav/Link'
+import { MessageLayout } from 'app/layouts/MessageLayout'
+import { Md } from 'app/components/Md'
 
 export default <cx>
     <main visible:expr="!!{user}" style="padding: 30px">

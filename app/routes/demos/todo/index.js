@@ -1,12 +1,12 @@
-import { HtmlElement } from 'cx/ui/HtmlElement';
-import { LabelTopLayout } from 'cx/ui/layout';
-import { Repeater } from 'cx/ui/Repeater';
-import { TextField } from 'cx/ui/form/TextField';
-import { Checkbox } from 'cx/ui/form/Checkbox';
-import { Button } from 'cx/ui/Button';
-import Controller from './Controller';
-import { Link } from 'cx/ui/nav/Link';
-import { applyOuterLayout } from 'app/layouts/dynamicLayout';
+import { HtmlElement } from 'cx/ui/HtmlElement'
+import { LabelTopLayout } from 'cx/ui/layout'
+import { Repeater } from 'cx/ui/Repeater'
+import { TextField } from 'cx/ui/form/TextField'
+import { Checkbox } from 'cx/ui/form/Checkbox'
+import { Button } from 'cx/ui/Button'
+import Controller from './Controller'
+import { Link } from 'cx/ui/nav/Link'
+import { applyOuterLayout } from 'app/layouts/dynamicLayout'
 
 export default <cx>
     <main>

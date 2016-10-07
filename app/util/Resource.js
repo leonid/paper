@@ -1,4 +1,4 @@
-import { updateArray, append } from 'cx/data/ops';
+import { updateArray, append } from 'cx/data/ops'
 
 function delayedResponse(response) {
     return new Promise((resolve) => {

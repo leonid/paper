@@ -1,7 +1,7 @@
-import { Controller } from 'cx/ui/Controller';
-import { History } from 'cx/app/History';
-import { Url } from 'cx/app/Url';
-import { contacts } from './api';
+import { Controller } from 'cx/ui/Controller'
+import { History } from 'cx/app/History'
+import { Url } from 'cx/app/Url'
+import { contacts } from './api'
 
 export default class extends Controller {
     init() {

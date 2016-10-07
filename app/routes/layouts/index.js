@@ -1,7 +1,7 @@
-import { Route } from 'cx/ui/nav/Route';
-import Layout1 from './layout1';
-import Layout2 from './layout2';
-import Layout3 from './layout3';
+import { Route } from 'cx/ui/nav/Route'
+import Layout1 from './layout1'
+import Layout2 from './layout2'
+import Layout3 from './layout3'
 
 export default <cx>
     <Route route="~/layouts/layout1" url:bind="url" items={Layout1}/>

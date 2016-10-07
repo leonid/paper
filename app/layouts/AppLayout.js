@@ -1,10 +1,10 @@
-import { ContentPlaceholder } from 'cx/ui/layout/ContentPlaceholder';
-import { HtmlElement } from 'cx/ui/HtmlElement';
-import { SideNav } from 'app/components/SideNav';
-import { Link } from 'cx/ui/nav/Link';
-import { Glyph } from 'app/components/Glyph';
-import { UserInfo } from 'app/components/UserInfo';
-import { GlobalCacheIdentifier } from 'cx/util/GlobalCacheIdentifier';
+import { ContentPlaceholder } from 'cx/ui/layout/ContentPlaceholder'
+import { HtmlElement } from 'cx/ui/HtmlElement'
+import { SideNav } from 'app/components/SideNav'
+import { Link } from 'cx/ui/nav/Link'
+import { Glyph } from 'app/components/Glyph'
+import { UserInfo } from 'app/components/UserInfo'
+import { GlobalCacheIdentifier } from 'cx/util/GlobalCacheIdentifier'
 
 function toggleMenu(e, {store}) {
     store.toggle('layout.menu.hide');

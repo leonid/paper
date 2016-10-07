@@ -1,5 +1,5 @@
-import { Controller } from 'cx/ui/Controller';
-import base64 from 'base-64';
+import { Controller } from 'cx/ui/Controller'
+import base64 from 'base-64'
 
 export default class extends Controller {
     init() {

@@ -1,13 +1,13 @@
-import { Controller } from 'cx/ui/Controller';
-import { History } from 'cx/app/History';
-import { Url } from 'cx/app/Url';
-import { orders, orderItems, products } from '../api';
-import { round2 } from 'app/util/round2';
-import { updateArray } from 'cx/data/ops/updateArray';
-import { append } from 'cx/data/ops/append';
-import deepEquals from 'deep-equal';
-import { diffArrays } from 'cx/data/diff/diffArrays';
-import { MsgBox } from 'cx/ui/overlay/MsgBox';
+import { Controller } from 'cx/ui/Controller'
+import { History } from 'cx/app/History'
+import { Url } from 'cx/app/Url'
+import { orders, orderItems, products } from '../api'
+import { round2 } from 'app/util/round2'
+import { updateArray } from 'cx/data/ops/updateArray'
+import { append } from 'cx/data/ops/append'
+import deepEquals from 'deep-equal'
+import { diffArrays } from 'cx/data/diff/diffArrays'
+import { MsgBox } from 'cx/ui/overlay/MsgBox'
 
 export default class extends Controller {
     init() {

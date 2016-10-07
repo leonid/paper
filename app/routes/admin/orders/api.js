@@ -1,8 +1,8 @@
-import { Resource } from 'app/util/Resource';
-import casual from 'app/util/casual';
-import { getComparer } from 'cx/data/comparer';
-import { diff } from 'cx/util/date/diff';
-import { round2 } from 'app/util/round2';
+import { Resource } from 'app/util/Resource'
+import casual from 'app/util/casual'
+import { getComparer } from 'cx/data/comparer'
+import { diff } from 'cx/util/date/diff'
+import { round2 } from 'app/util/round2'
 
 var productData = Array.from({length: 200}, (_, index) => ({
     id: index + 1,

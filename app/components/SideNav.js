@@ -1,17 +1,17 @@
-import { HtmlElement } from 'cx/ui/HtmlElement';
-import { List } from 'cx/ui/List';
-import { Repeater } from 'cx/ui/Repeater';
-import { Controller } from 'cx/ui/Controller';
-import { Text } from 'cx/ui/Text';
-import { Link } from 'cx/ui/nav/Link';
-import { KeySelection } from 'cx/ui/selection/KeySelection';
-import { Menu } from 'cx/ui/nav/Menu';
-import { TreeAdapter } from 'cx/ui/grid/TreeAdapter';
-import { History } from 'cx/app/History';
-import { Url } from 'cx/app/Url';
-import NavTree from './NavTree';
-import { updateArray } from 'cx/data/ops/updateArray';
-import { Glyph } from 'app/components/Glyph';
+import { HtmlElement } from 'cx/ui/HtmlElement'
+import { List } from 'cx/ui/List'
+import { Repeater } from 'cx/ui/Repeater'
+import { Controller } from 'cx/ui/Controller'
+import { Text } from 'cx/ui/Text'
+import { Link } from 'cx/ui/nav/Link'
+import { KeySelection } from 'cx/ui/selection/KeySelection'
+import { Menu } from 'cx/ui/nav/Menu'
+import { TreeAdapter } from 'cx/ui/grid/TreeAdapter'
+import { History } from 'cx/app/History'
+import { Url } from 'cx/app/Url'
+import NavTree from './NavTree'
+import { updateArray } from 'cx/data/ops/updateArray'
+import { Glyph } from 'app/components/Glyph'
 
 class CController extends Controller {
     init() {

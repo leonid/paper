@@ -1,8 +1,8 @@
-import helpers from 'casual/src/helpers';
-import number from  'casual/src/providers/number';
-import person from  'casual/src/providers/person';
-import address from  'casual/src/providers/address';
-import text from  'casual/src/providers/text';
+import helpers from 'casual/src/helpers'
+import number from 'casual/src/providers/number'
+import person from 'casual/src/providers/person'
+import address from 'casual/src/providers/address'
+import text from 'casual/src/providers/text'
 
 const browsers = {
     browsers: ['Chrome', 'Firefox', 'Internet Explorer', 'Opera', 'Safari', 'Edge'],

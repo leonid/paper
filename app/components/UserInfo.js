@@ -1,10 +1,10 @@
-import { HtmlElement } from 'cx/ui/HtmlElement';
-import { Glyph } from 'app/components/Glyph';
-import { Menu } from 'cx/ui/nav/Menu';
-import { Link } from 'cx/ui/nav/Link';
-import { Text } from 'cx/ui/Text';
-import { Submenu } from 'cx/ui/nav/Submenu';
-import { openSettingsWindow } from './SettingsWindow';
+import { HtmlElement } from 'cx/ui/HtmlElement'
+import { Glyph } from 'app/components/Glyph'
+import { Menu } from 'cx/ui/nav/Menu'
+import { Link } from 'cx/ui/nav/Link'
+import { Text } from 'cx/ui/Text'
+import { Submenu } from 'cx/ui/nav/Submenu'
+import { openSettingsWindow } from './SettingsWindow'
 
 export const UserInfo = <cx>
     <Menu horizontal>

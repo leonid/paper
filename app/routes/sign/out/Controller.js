@@ -1,6 +1,6 @@
-import { Controller } from 'cx/ui/Controller';
-import { Url } from 'cx/app/Url';
-import { History } from 'cx/app/History';
+import { Controller } from 'cx/ui/Controller'
+import { Url } from 'cx/app/Url'
+import { History } from 'cx/app/History'
 
 export default class extends Controller {
     init() {

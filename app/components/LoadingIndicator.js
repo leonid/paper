@@ -1,4 +1,4 @@
-import { Widget, VDOM } from 'cx/ui/Widget';
+import { Widget, VDOM } from 'cx/ui/Widget'
 
 export class LoadingIndicator extends Widget {
     render(context, instance, key) {
