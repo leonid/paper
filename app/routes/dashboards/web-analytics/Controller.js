@@ -1,7 +1,7 @@
-import {Controller} from 'cx/ui/Controller';
-import {History} from 'cx/app/History';
-import {Url} from 'cx/app/Url';
-import {getPageViews, groupBy, sortBy} from './api';
+import { Controller } from 'cx/ui/Controller';
+import { History } from 'cx/app/History';
+import { Url } from 'cx/app/Url';
+import { getPageViews, groupBy, sortBy } from './api';
 
 
 export default class extends Controller {
@@ -122,7 +122,7 @@ export default class extends Controller {
             }
         }]);
 
-        this.addComputable('$page.field', ['$page.fields', '$page.selected.field'], (fields, id) => fields.find(a=>a.id == id));
+        this.addComputable('$page.field', ['$page.fields', '$page.selected.field'], (fields, id) => fields.find(a => a.id == id));
 
         this.addComputable('$page.data', ['$page.date'], (date) => {
             return getPageViews(date.from, date.to);
@@ -130,12 +130,12 @@ export default class extends Controller {
 
         this.addComputable('$page.total', ['$page.data', '$page.fields'], (data, fields) => {
             var aggregates = {};
-            fields.forEach(f=> Object.assign(aggregates, f.aggregates));
+            fields.forEach(f => Object.assign(aggregates, f.aggregates));
             var result = groupBy(data, {}, aggregates, x => {
                 var r = {
                     ...x.aggregates
                 };
-                fields.forEach(f=> {
+                fields.forEach(f => {
                     if (f.value)
                         r[f.id] = f.value(x)
                 });
@@ -146,7 +146,7 @@ export default class extends Controller {
 
         this.addComputable('$page.monthly', ['$page.data', '$page.fields', '$page.selected.field'], (data, fields, field) => {
             var aggregates = {};
-            fields.forEach(f=> Object.assign(aggregates, f.aggregates));
+            fields.forEach(f => Object.assign(aggregates, f.aggregates));
             var result = groupBy(data, {
                 year: x => x.date.getFullYear(),
                 month: x => x.date.getMonth(),
@@ -156,7 +156,7 @@ export default class extends Controller {
                     month: Number(x.key.year) * 12 + Number(x.key.month),
                     ...x.aggregates
                 };
-                fields.forEach(f=> {
+                fields.forEach(f => {
                     if (f.value)
                         r[f.id] = f.value(x)
                 });
@@ -170,7 +170,7 @@ export default class extends Controller {
             var details = {};
             var categories = [slots.slot0, slots.slot1, slots.slot2, slots.slot3];
 
-            categories.forEach((cat, index)=> {
+            categories.forEach((cat, index) => {
                 var slotName = 'slot' + index;
                 var result = sortBy(groupBy(data, {
                     name: {bind: cat}
@@ -186,14 +186,14 @@ export default class extends Controller {
                 })).slice(0, 12);
 
                 //max value required for bars
-                result.forEach(d=>d.max = result[0].value);
+                result.forEach(d => d.max = result[0].value);
                 details[slotName] = result;
 
                 if (Array.isArray(selected[slotName]) && selected[slotName].length > 0) {
-                    data = data.filter(x=>selected[slotName].indexOf(x[cat]) != -1);
+                    data = data.filter(x => selected[slotName].indexOf(x[cat]) != -1);
 
                     //check if all selected values are actualy in the data
-                    var validSelections = selected[slotName].filter(x=>details[slotName].some(y=>y.name == x));
+                    var validSelections = selected[slotName].filter(x => details[slotName].some(y => y.name == x));
                     if (validSelections.length != selected[slotName].length)
                         this.store.set('$page.selected.' + slotName, validSelections);
                 }

@@ -1,4 +1,4 @@
-import {Route} from 'cx/ui/nav/Route';
+import { Route } from 'cx/ui/nav/Route';
 import Layout1 from './layout1';
 import Layout2 from './layout2';
 import Layout3 from './layout3';

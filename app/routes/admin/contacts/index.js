@@ -1,17 +1,17 @@
-import {HtmlElement} from 'cx/ui/HtmlElement';
-import {LabelsTopLayout} from 'cx/ui/layout/LabelsTopLayout';
-import {Repeater} from 'cx/ui/Repeater';
-import {TextField} from 'cx/ui/form/TextField';
-import {Checkbox} from 'cx/ui/form/Checkbox';
-import {Glyph} from 'app/components/Glyph';
-import {Button} from 'cx/ui/Button';
+import { HtmlElement } from 'cx/ui/HtmlElement';
+import { LabelsTopLayout } from 'cx/ui/layout/LabelsTopLayout';
+import { Repeater } from 'cx/ui/Repeater';
+import { TextField } from 'cx/ui/form/TextField';
+import { Checkbox } from 'cx/ui/form/Checkbox';
+import { Glyph } from 'app/components/Glyph';
+import { Button } from 'cx/ui/Button';
 import Controller from './Controller';
-import {List} from 'cx/ui/List';
-import {Link} from 'cx/ui/nav/Link';
-import {Text} from 'cx/ui/Text';
-import {applyOuterLayout} from 'app/layouts/dynamicLayout';
-import {KeySelection} from 'cx/ui/selection/KeySelection';
-import {ValidationGroup} from 'cx/ui/form/ValidationGroup';
+import { List } from 'cx/ui/List';
+import { Link } from 'cx/ui/nav/Link';
+import { Text } from 'cx/ui/Text';
+import { applyOuterLayout } from 'app/layouts/dynamicLayout';
+import { KeySelection } from 'cx/ui/selection/KeySelection';
+import { ValidationGroup } from 'cx/ui/form/ValidationGroup';
 
 
 export default <cx>
@@ -25,62 +25,63 @@ export default <cx>
         </div>
         <aside class="cse-contacts-list">
             <div class="cse-contacts-toolbar">
-                <TextField value:bind="$page.filter.query" mod="search" placeholder="Search Contacts..." />
+                <TextField value:bind="$page.filter.query" mod="search" placeholder="Search Contacts..."/>
             </div>
-            <List mod="contacts" records:bind="$page.contacts" selection={{ type: KeySelection, bind: '$page.selection.id' }}>
+            <List mod="contacts" records:bind="$page.contacts"
+                  selection={{type: KeySelection, bind: '$page.selection.id'}}>
                 <div class="cxb-contactcard">
-                    <strong><Text tpl="{$record.firstName} {$record.lastName}" /></strong>
+                    <strong><Text tpl="{$record.firstName} {$record.lastName}"/></strong>
                     <br/>
-                    <span text:tpl="{$record.email}" class="cxe-contactcard-email" />
+                    <span text:tpl="{$record.email}" class="cxe-contactcard-email"/>
                 </div>
             </List>
         </aside>
         <article class="cse-contacts-details">
             <div class="cse-contacts-toolbar">
                 <Button onClick="onAdd" preserveWhitespace>
-                    <Glyph name="plus" /> Add Contact
+                    <Glyph name="plus"/> Add Contact
                 </Button>
-                <div class="flex1" />
-                <Glyph visible:expr="{$page.loading}" name="refresh" style="margin:5px" />
+                <div class="flex1"/>
+                <Glyph visible:expr="{$page.loading}" name="refresh" style="margin:5px"/>
             </div>
             <div class="cxb-contact-form">
                 <img style="width:100px;height:100px;float:right; margin-right: 20px"/>
-                <h2 text:tpl="{$page.entry.firstName} {$page.entry.lastName}" />
+                <h2 text:tpl="{$page.entry.firstName} {$page.entry.lastName}"/>
 
                 <ValidationGroup invalid:bind="$page.invalid">
                     <div layout={LabelsTopLayout}>
-                        <TextField value:bind="$page.entry.firstName" label="First Name" style="width:200px" required />
-                        <TextField value:bind="$page.entry.lastName" label="Last Name" style="width:200px" required />
+                        <TextField value:bind="$page.entry.firstName" label="First Name" style="width:200px" required/>
+                        <TextField value:bind="$page.entry.lastName" label="Last Name" style="width:200px" required/>
                     </div>
                     <h5>Email</h5>
                     <div layout={LabelsTopLayout}>
-                        <TextField value:bind="$page.entry.email" label="Primary" style="width:200px" />
-                        <TextField value:bind="$page.entry.email2" label="Secondary" style="width:200px" />
+                        <TextField value:bind="$page.entry.email" label="Primary" style="width:200px"/>
+                        <TextField value:bind="$page.entry.email2" label="Secondary" style="width:200px"/>
                     </div>
                     <h5>Phone</h5>
                     <div layout={LabelsTopLayout}>
-                        <TextField value:bind="$page.entry.mobilePhone" label="Mobile" style="width:200px" />
-                        <TextField value:bind="$page.entry.officePhone" label="Office" style="width:200px" />
-                        <TextField value:bind="$page.entry.homePhone" label="Home" style="width:200px" />
+                        <TextField value:bind="$page.entry.mobilePhone" label="Mobile" style="width:200px"/>
+                        <TextField value:bind="$page.entry.officePhone" label="Office" style="width:200px"/>
+                        <TextField value:bind="$page.entry.homePhone" label="Home" style="width:200px"/>
                     </div>
                     <h5>Address</h5>
                     <div layout={LabelsTopLayout}>
-                        <TextField value:bind="$page.entry.street" label="Street" style="width:350px" />
+                        <TextField value:bind="$page.entry.street" label="Street" style="width:350px"/>
                         <TextField value:bind="$page.entry.streetNo" label="No." style="width:50px"/>
                     </div>
                     <div layout={LabelsTopLayout}>
-                        <TextField value:bind="$page.entry.zip" label="Zip" style="width:100px" />
-                        <TextField value:bind="$page.entry.city" label="City" style="width:300px" />
+                        <TextField value:bind="$page.entry.zip" label="Zip" style="width:100px"/>
+                        <TextField value:bind="$page.entry.city" label="City" style="width:300px"/>
                     </div>
                     <div layout={LabelsTopLayout}>
-                        <TextField value:bind="$page.entry.country" label="Country" style="width:200px" />
-                        <TextField value:bind="$page.entry.state" label="State" style="width:200px" />
+                        <TextField value:bind="$page.entry.country" label="Country" style="width:200px"/>
+                        <TextField value:bind="$page.entry.state" label="State" style="width:200px"/>
                     </div>
                 </ValidationGroup>
                 <hr />
                 <div class="flex-row">
                     <Button onClick="onSave" disabled:expr="{$page.invalid} || {$page.saving}">Save</Button>
-                    <div class="flex1" />
+                    <div class="flex1"/>
                     <Button onClick="onDelete">Delete</Button>
                 </div>
             </div>

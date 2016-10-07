@@ -1,4 +1,4 @@
-import {Route} from 'cx/ui/nav/Route';
+import { Route } from 'cx/ui/nav/Route';
 import SignIn from './in';
 import SignOut from './out';
 

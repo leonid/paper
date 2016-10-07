@@ -23,12 +23,12 @@
       border-width: 0 0 1px 0;
       border-color: $base-border-color;
       &:hover {
-        background-color: lighten(#e3e6ef,1);
+        background-color: lighten(#e3e6ef, 1);
       }
     }
     &.cxs-sorted-asc,
     &.cxs-sorted-desc {
-      background-color: #e5e8f1  !important;
+      background-color: #e5e8f1 !important;
     }
   }
 

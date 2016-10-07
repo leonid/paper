@@ -1,22 +1,22 @@
-import {HtmlElement} from 'cx/ui/HtmlElement';
-import {LabelsTopLayout} from 'cx/ui/layout/LabelsTopLayout';
-import {Repeater} from 'cx/ui/Repeater';
-import {TextField} from 'cx/ui/form/TextField';
-import {NumberField} from 'cx/ui/form/NumberField';
-import {MonthField} from 'cx/ui/form/MonthField';
-import {Select} from 'cx/ui/form/Select';
-import {Checkbox} from 'cx/ui/form/Checkbox';
-import {Glyph} from 'app/components/Glyph';
-import {Button} from 'cx/ui/Button';
-import {Grid} from 'cx/ui/grid/Grid';
-import {Pagination} from 'cx/ui/grid/Pagination';
-import {Link} from 'cx/ui/nav/Link';
+import { HtmlElement } from 'cx/ui/HtmlElement';
+import { LabelsTopLayout } from 'cx/ui/layout/LabelsTopLayout';
+import { Repeater } from 'cx/ui/Repeater';
+import { TextField } from 'cx/ui/form/TextField';
+import { NumberField } from 'cx/ui/form/NumberField';
+import { MonthField } from 'cx/ui/form/MonthField';
+import { Select } from 'cx/ui/form/Select';
+import { Checkbox } from 'cx/ui/form/Checkbox';
+import { Glyph } from 'app/components/Glyph';
+import { Button } from 'cx/ui/Button';
+import { Grid } from 'cx/ui/grid/Grid';
+import { Pagination } from 'cx/ui/grid/Pagination';
+import { Link } from 'cx/ui/nav/Link';
 import Controller from './Controller';
-import {List} from 'cx/ui/List';
-import {Text} from 'cx/ui/Text';
-import {applyOuterLayout} from 'app/layouts/dynamicLayout';
-import {KeySelection} from 'cx/ui/selection/KeySelection';
-import {ValidationGroup} from 'cx/ui/form/ValidationGroup';
+import { List } from 'cx/ui/List';
+import { Text } from 'cx/ui/Text';
+import { applyOuterLayout } from 'app/layouts/dynamicLayout';
+import { KeySelection } from 'cx/ui/selection/KeySelection';
+import { ValidationGroup } from 'cx/ui/form/ValidationGroup';
 
 
 export default <cx>
@@ -27,8 +27,8 @@ export default <cx>
                 <li class="cse-breadcrumb-item">Admin</li>
                 <li class="cse-breadcrumb-item">Orders</li>
             </ul>
-            <Button text="New Order" onClick="onNewOrder" />
-            <Glyph visible:expr="{$page.loading}" name="refresh" />
+            <Button text="New Order" onClick="onNewOrder"/>
+            <Glyph visible:expr="{$page.loading}" name="refresh"/>
         </div>
         <Grid records:bind="$page.records"
               mod="orders"
@@ -38,9 +38,10 @@ export default <cx>
               lockColumnWidths
               sorters:bind="$page.filter.sorters"
               columns={[
-                  { field: 'orderNo', sortable: true,
+                  {
+                      field: 'orderNo', sortable: true,
                       items: <cx>
-                          <Link href:tpl="~/admin/orders/{$record.id}" text:tpl="{$record.orderNo}" />
+                          <Link href:tpl="~/admin/orders/{$record.id}" text:tpl="{$record.orderNo}"/>
                       </cx>,
                       header: {
                           style: 'width: 150px',
@@ -54,15 +55,16 @@ export default <cx>
                           </cx>
                       },
                   },
-                  { field: 'date', format: 'd', sortable: true,
+                  {
+                      field: 'date', format: 'd', sortable: true,
                       header: {
-                        style: 'width: 220px',
+                          style: 'width: 220px',
                           items: <cx>
                               <div>
                                   Date
                                   <br/>
                                   <MonthField style="width:100%;margin-top:5px" range from:bind="$page.filter.dateFrom"
-                                              to:bind="$page.filter.dateTo" />
+                                              to:bind="$page.filter.dateTo"/>
                               </div>
                           </cx>
                       }
@@ -79,7 +81,8 @@ export default <cx>
                           </cx>
                       }
                   },
-                  { field: 'country', sortable: true,
+                  {
+                      field: 'country', sortable: true,
                       header: {
                           items: <cx>
                               <div>
@@ -90,7 +93,8 @@ export default <cx>
                           </cx>
                       }
                   },
-                  { field: 'city', sortable: true,
+                  {
+                      field: 'city', sortable: true,
                       header: {
                           items: <cx>
                               <div>
@@ -101,7 +105,7 @@ export default <cx>
                           </cx>
                       }
                   },
-                  { header: 'Total', field: 'totalAmount', format: 'currency;;2', align: 'right', sortable: true },
+                  {header: 'Total', field: 'totalAmount', format: 'currency;;2', align: 'right', sortable: true},
               ]}>
         </Grid>
         <div style="padding: 5px">

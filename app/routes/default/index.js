@@ -1,11 +1,11 @@
-import {HtmlElement} from 'cx/ui/HtmlElement';
-import {Controller} from 'cx/ui/Controller';
-import {Link} from 'cx/ui/nav/Link';
-import {MessageLayout} from 'app/layouts/MessageLayout';
-import {Md} from 'app/components/Md';
+import { HtmlElement } from 'cx/ui/HtmlElement';
+import { Controller } from 'cx/ui/Controller';
+import { Link } from 'cx/ui/nav/Link';
+import { MessageLayout } from 'app/layouts/MessageLayout';
+import { Md } from 'app/components/Md';
 
 export default <cx>
-    <main visible:expr="!{user}" outerLayout={MessageLayout} >
+    <main visible:expr="!{user}" outerLayout={MessageLayout}>
         <h3>Welcome to Cx Starter Kit</h3>
         <p>This is the default page.</p>
         <p>
@@ -24,7 +24,7 @@ export default <cx>
         <a href="https://github.com/codaxy/cx-starter-kit">
             <img style="position: absolute; top: 0; right: 0; border: 0;"
                  src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67"
-                 alt="Fork me on GitHub" />
+                 alt="Fork me on GitHub"/>
         </a>
 
         <Md>
@@ -35,19 +35,19 @@ export default <cx>
             - providing a starting point for new projects
             - being a repository of best practices
             - demonstrating usage of:
-                - Widgets
-                - Layouts
-                - Charts
-                - Routing
+            - Widgets
+            - Layouts
+            - Charts
+            - Routing
             - providing ready to use examples of typical application pages
-                - admin pages
-                - dashboard pages
+            - admin pages
+            - dashboard pages
             - recommending scalable project structure
             - explain advanced webpack usage
-                - hot reload
-                - production builds
-                - code splitting
-                - on demand code loading
+            - hot reload
+            - production builds
+            - code splitting
+            - on demand code loading
             - providing a sample CSS structure
 
             The source code is available from [GitHub](https://github.com/codaxy/cx-starter-kit).

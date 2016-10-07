@@ -1,4 +1,4 @@
-import {Controller} from 'cx/ui/Controller';
+import { Controller } from 'cx/ui/Controller';
 import base64 from 'base-64';
 
 export default class extends Controller {
@@ -35,7 +35,7 @@ export default class extends Controller {
             }]
         });
 
-        this.addTrigger('search', ['$page.search'], function(search) {
+        this.addTrigger('search', ['$page.search'], function (search) {
             var qs = search.query;
             if (search.lang)
                 qs += '+language:' + search.lang;
@@ -43,16 +43,16 @@ export default class extends Controller {
             if (qs) {
                 store.set('$page.loading', 'in-progress');
                 fetch(`https://api.github.com/search/repositories?q=${qs}&sort=stars&order=desc`)
-                .then(r=>r.json())
-                .then(d=> {
-                    store.set('$page.repos', d.items);
-                    store.set('$page.loading', 'done');
-                });
+                    .then(r => r.json())
+                    .then(d => {
+                        store.set('$page.repos', d.items);
+                        store.set('$page.loading', 'done');
+                    });
             }
         }, true);
 
         this.addComputable('$page.selected.repo', ['$page.selected.id', '$page.repos'], function (selected, repos) {
-            return repos && repos.find(a=>a.id == selected);
+            return repos && repos.find(a => a.id == selected);
         });
 
         this.addTrigger('tabLoader', ['$page.selected.repo', '$page.tab'], function (repo, tab) {
@@ -61,8 +61,8 @@ export default class extends Controller {
                     case 'readme':
                         store.set('$page.selected.info.readme.status', 'loading');
                         fetch('https://api.github.com/repos/' + repo.owner.login + '/' + repo.name + '/readme')
-                            .then(r=>r.json())
-                            .then(r=> {
+                            .then(r => r.json())
+                            .then(r => {
                                 if (r.content)
                                     store.set('$page.selected.info.readme', {
                                         text: base64.decode(r.content),
@@ -74,7 +74,7 @@ export default class extends Controller {
                                         status: 'error'
                                     });
                             })
-                            .catch(error=> {
+                            .catch(error => {
                                 store.set('$page.selected.info.readme', {
                                     error,
                                     status: 'error'
@@ -85,8 +85,8 @@ export default class extends Controller {
                     case 'contributors':
                         store.set('$page.selected.info.commits.status', 'loading');
                         fetch('https://api.github.com/repos/' + repo.owner.login + '/' + repo.name + '/commits')
-                            .then(r=>r.json())
-                            .then(r=> {
+                            .then(r => r.json())
+                            .then(r => {
                                 if (r.message)
                                     store.set('$page.selected.info.commits', {
                                         status: 'error',
@@ -98,7 +98,7 @@ export default class extends Controller {
                                         status: 'ok'
                                     });
                             })
-                            .catch(err=> {
+                            .catch(err => {
                                 store.set('$page.selected.info.commits.status', 'error');
                                 store.set('$page.selected.info.commits.error', err);
                             });
@@ -110,9 +110,9 @@ export default class extends Controller {
         this.addComputable('$page.selected.info.contributors', ['$page.selected.info.commits'], function (commits) {
             if (!commits || commits.status != 'ok')
                 return null;
-            
+
             var cache = {};
-            commits.list.forEach(x=> {
+            commits.list.forEach(x => {
                 var login = x.commit.committer.name;
                 var c = cache[login];
                 if (!c)
@@ -124,7 +124,7 @@ export default class extends Controller {
                 c.commits++;
             });
 
-            return Object.keys(cache).map(k=>cache[k]);
-      });
-    }    
+            return Object.keys(cache).map(k => cache[k]);
+        });
+    }
 }

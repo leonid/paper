@@ -1,5 +1,4 @@
 
-
 .csb-breadcrumb {
   list-style: none;
   display: inline-block;
@@ -15,8 +14,8 @@
   padding-right: 1rem;
   position: relative;
   color: #475767;
-  $thickness:1px;
-  $color: darken($base-border-color,20);
+  $thickness: 1px;
+  $color: darken($base-border-color, 20);
   $size: 8px;
 
   &:not(:last-child):before {
@@ -28,8 +27,8 @@
     width: $size;
     border-width: 0 $thickness $thickness 0;
     border-style: solid;
-    border-color: darken($color,5);
-    transform: rotate(-45deg) translate3d(0,-50%,0);
+    border-color: darken($color, 5);
+    transform: rotate(-45deg) translate3d(0, -50%, 0);
 
   }
 
@@ -42,7 +41,7 @@
     text-decoration: none;
     color: inherit;
     &:hover {
-      color: darken($base-blue-color,5);
+      color: darken($base-blue-color, 5);
     }
   }
 }

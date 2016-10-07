@@ -1,8 +1,7 @@
-import {Widget, VDOM} from 'cx/ui/Widget';
-import {CSS} from 'cx/ui/CSS';
+import { Widget, VDOM } from 'cx/ui/Widget';
+import { CSS } from 'cx/ui/CSS';
 
-export class Glyph extends Widget
-{
+export class Glyph extends Widget {
     declareData() {
         super.declareData(...arguments, {
             name: undefined,

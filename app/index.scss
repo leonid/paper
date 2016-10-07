@@ -3,7 +3,7 @@
 //base colors
 $base-blue-color: #35a8f7;
 $base-back-color: #f0f2f5;
-$base-border-color: darken(#eff1f7,6);
+$base-border-color: darken(#eff1f7, 6);
 
 //layout
 
@@ -12,7 +12,6 @@ $layout-nav-width: 14rem;
 * {
   box-sizing: border-box;
 }
-
 
 html {
   height: 100%;
@@ -41,7 +40,7 @@ h6 {
 }
 
 a {
-  color: darken($base-blue-color,10);
+  color: darken($base-blue-color, 10);
 }
 
 h1 {

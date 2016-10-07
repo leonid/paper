@@ -1,14 +1,14 @@
-import {Controller} from 'cx/ui/Controller';
-import {History} from 'cx/app/History';
-import {Url} from 'cx/app/Url';
+import { Controller } from 'cx/ui/Controller';
+import { History } from 'cx/app/History';
+import { Url } from 'cx/app/Url';
 
 function sparkline() {
     var v = 50;
     return Array.from({length: 21})
-                .map((_, i) => ({
-                    x: i,
-                    y: v = (v + Math.random() * 10 - 5)
-                }));
+        .map((_, i) => ({
+            x: i,
+            y: v = (v + Math.random() * 10 - 5)
+        }));
 }
 
 export default class extends Controller {

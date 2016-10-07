@@ -1,11 +1,9 @@
-import {Controller} from 'cx/ui/Controller';
-import {Url} from 'cx/app/Url';
-import {History} from 'cx/app/History';
+import { Controller } from 'cx/ui/Controller';
+import { Url } from 'cx/app/Url';
+import { History } from 'cx/app/History';
 
-export default class extends Controller
-{
-    init()
-    {
+export default class extends Controller {
+    init() {
         super.init();
         this.store.delete('user');
         sessionStorage.removeItem('user');

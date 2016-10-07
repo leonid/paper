@@ -1,17 +1,17 @@
-import {HtmlElement} from 'cx/ui/HtmlElement';
-import {List} from 'cx/ui/List';
-import {Repeater} from 'cx/ui/Repeater';
-import {Controller} from 'cx/ui/Controller';
-import {Text} from 'cx/ui/Text';
-import {Link} from 'cx/ui/nav/Link';
-import {KeySelection} from 'cx/ui/selection/KeySelection';
-import {Menu} from 'cx/ui/nav/Menu';
-import {TreeAdapter} from 'cx/ui/grid/TreeAdapter';
-import {History} from 'cx/app/History';
-import {Url} from 'cx/app/Url';
+import { HtmlElement } from 'cx/ui/HtmlElement';
+import { List } from 'cx/ui/List';
+import { Repeater } from 'cx/ui/Repeater';
+import { Controller } from 'cx/ui/Controller';
+import { Text } from 'cx/ui/Text';
+import { Link } from 'cx/ui/nav/Link';
+import { KeySelection } from 'cx/ui/selection/KeySelection';
+import { Menu } from 'cx/ui/nav/Menu';
+import { TreeAdapter } from 'cx/ui/grid/TreeAdapter';
+import { History } from 'cx/app/History';
+import { Url } from 'cx/app/Url';
 import NavTree from './NavTree';
-import {updateArray} from 'cx/data/ops/updateArray';
-import {Glyph} from 'app/components/Glyph';
+import { updateArray } from 'cx/data/ops/updateArray';
+import { Glyph } from 'app/components/Glyph';
 
 class CController extends Controller {
     init() {
@@ -22,7 +22,7 @@ class CController extends Controller {
             this.store.update('contents', updateArray, t => ({
                 ...t,
                 expanded: true
-            }), t=>!t.expanded && t.articles.some(x=>url.indexOf(x.url) == 0))
+            }), t => !t.expanded && t.articles.some(x => url.indexOf(x.url) == 0))
         }, true);
     }
 }
@@ -64,8 +64,8 @@ export const SideNav = <cx>
               match="prefix"
               mod="sidenav"
               tabIndex={-1}>
-            <Glyph name:expr="{$topic.glyph} || 'file-text-o'" />
-            <Text bind="$topic.title" />
+            <Glyph name:expr="{$topic.glyph} || 'file-text-o'"/>
+            <Text bind="$topic.title"/>
         </Link>
 
     </List>

@@ -1,4 +1,4 @@
-import {Resource} from 'app/util/Resource';
+import { Resource } from 'app/util/Resource';
 import casual from 'app/util/casual';
 
 const contactData = Array.from({length: 100}, (_, index) => {
@@ -25,8 +25,8 @@ contacts.filter = (data, f) => {
         return data;
     var result = data;
     if (f.query) {
-        var checks = f.query.split(' ').map(w=>new RegExp(w, 'gi'));
-        result = result.filter(a=>checks.every(ex=>a.firstName.match(ex) || a.lastName.match(ex)));
+        var checks = f.query.split(' ').map(w => new RegExp(w, 'gi'));
+        result = result.filter(a => checks.every(ex => a.firstName.match(ex) || a.lastName.match(ex)));
     }
     return result;
 };

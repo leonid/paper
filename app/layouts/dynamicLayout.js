@@ -1,9 +1,8 @@
-
-import {Widget} from 'cx/ui/Widget';
-import {AppLayout} from './AppLayout';
-import {TopMenuLayout} from './TopMenuLayout';
-import {TopTabsLayout} from './TopTabsLayout';
-import {store} from 'app/store';
+import { Widget } from 'cx/ui/Widget';
+import { AppLayout } from './AppLayout';
+import { TopMenuLayout } from './TopMenuLayout';
+import { TopTabsLayout } from './TopTabsLayout';
+import { store } from 'app/store';
 
 var cache = {};
 store.init('layout.id', "layout1");

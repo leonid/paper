@@ -44,14 +44,14 @@
   background: linear-gradient(60deg,
           $base-blue-color 0,
           $base-blue-color 8%,
-          adjust_color($base-blue-color,$hue:-4%) 8%,
-          adjust_color($base-blue-color,$hue:-4%) 30%,
-          adjust_color($base-blue-color,$hue:-10%) 30%,
-          adjust_color($base-blue-color,$hue:-10%) 40%,
-          adjust_color($base-blue-color,$hue:-13%) 40%,
-          adjust_color($base-blue-color,$hue:-13%) 85%,
-          adjust_color($base-blue-color,$hue:-16%) 85%,
-          adjust_color($base-blue-color,$hue:-16%));
+          adjust_color($base-blue-color, $hue: -4%) 8%,
+          adjust_color($base-blue-color, $hue: -4%) 30%,
+          adjust_color($base-blue-color, $hue: -10%) 30%,
+          adjust_color($base-blue-color, $hue: -10%) 40%,
+          adjust_color($base-blue-color, $hue: -13%) 40%,
+          adjust_color($base-blue-color, $hue: -13%) 85%,
+          adjust_color($base-blue-color, $hue: -16%) 85%,
+          adjust_color($base-blue-color, $hue: -16%));
 
   //border-bottom: $applayout-header-border solid rgba(black, .1);
 

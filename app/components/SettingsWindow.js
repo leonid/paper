@@ -1,11 +1,11 @@
-import {Widget} from 'cx/ui/Widget';
-import {Window} from 'cx/ui/overlay/Window';
-import {HtmlElement} from 'cx/ui/HtmlElement';
-import {Button} from 'cx/ui/Button';
-import {Tab} from 'cx/ui/nav/Tab';
-import {Select, Option} from 'cx/ui/form/Select';
-import {LabelsLeftLayout} from 'cx/ui/layout/LabelsLeftLayout';
-import {TextField} from 'cx/ui/form/TextField';
+import { Widget } from 'cx/ui/Widget';
+import { Window } from 'cx/ui/overlay/Window';
+import { HtmlElement } from 'cx/ui/HtmlElement';
+import { Button } from 'cx/ui/Button';
+import { Tab } from 'cx/ui/nav/Tab';
+import { Select, Option } from 'cx/ui/form/Select';
+import { LabelsLeftLayout } from 'cx/ui/layout/LabelsLeftLayout';
+import { TextField } from 'cx/ui/form/TextField';
 
 const SettingsWindow = <cx>
     <Window title="User Settings" modal center>
@@ -13,7 +13,7 @@ const SettingsWindow = <cx>
             User Settings
         </div>
         <div style="width:600px;height:400px;padding: 20px" layout={LabelsLeftLayout}>
-            <TextField value:bind="user.displayName" label="Display Name" />
+            <TextField value:bind="user.displayName" label="Display Name"/>
             <Select value:bind="layout.id" label="Layout">
                 <Option value="layout1">Layout1</Option>
                 <Option value="layout2">Layout2</Option>
@@ -21,7 +21,9 @@ const SettingsWindow = <cx>
             </Select>
         </div>
         <div putInto="footer" style="text-align: right">
-            <Button onClick={(e, instance) => { instance.parentOptions.dismiss() }}>OK</Button>
+            <Button onClick={(e, instance) => {
+                instance.parentOptions.dismiss()
+            }}>OK</Button>
         </div>
     </Window>
 </cx>;

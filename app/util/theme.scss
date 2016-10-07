@@ -6,14 +6,12 @@ svg {
   shape-rendering: auto;
 }
 
-
 .cxb-link {
- text-decoration: none;
+  text-decoration: none;
   &:hover {
     //text-decoration: underline;
   }
 }
-
 
 .cxe-textarea-input,
 .cxe-textfield-input {

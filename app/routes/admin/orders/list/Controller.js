@@ -1,7 +1,7 @@
-import {Controller} from 'cx/ui/Controller';
-import {History} from 'cx/app/History';
-import {Url} from 'cx/app/Url';
-import {orders} from '../api';
+import { Controller } from 'cx/ui/Controller';
+import { History } from 'cx/app/History';
+import { Url } from 'cx/app/Url';
+import { orders } from '../api';
 
 export default class extends Controller {
     init() {
@@ -15,14 +15,14 @@ export default class extends Controller {
             query: null
         });
 
-        this.addTrigger('resetPage', ['$page.filter', '$page.pageSize'], ()=>{
+        this.addTrigger('resetPage', ['$page.filter', '$page.pageSize'], () => {
             this.store.set('$page.page', 1);
             this.store.set('$page.pageCount', 1);
         }, true);
 
         this.addTrigger('load', ['$page.filter', '$page.page', '$page.pageSize'], () => this.reload(), true);
 
-        this.store.set('layout.menu.hide',false);
+        this.store.set('layout.menu.hide', false);
     }
 
     reload(callback) {
@@ -31,11 +31,11 @@ export default class extends Controller {
         var page = this.store.get('$page.page');
         var pageCount = this.store.get('$page.pageCount');
         var promise = orders.query({...filter, page, pageSize})
-                            .then(data => {
-                                this.store.set('$page.records', data.slice(0, pageSize));
-                                //if we got more than what we asked that increase the pageCount
-                                this.store.set('$page.pageCount', Math.max(pageCount, page + (data.length > pageSize ? 1 : 0)));
-                            });
+            .then(data => {
+                this.store.set('$page.records', data.slice(0, pageSize));
+                //if we got more than what we asked that increase the pageCount
+                this.store.set('$page.pageCount', Math.max(pageCount, page + (data.length > pageSize ? 1 : 0)));
+            });
         this.setLoadingIndicator(promise);
     }
 
@@ -45,18 +45,18 @@ export default class extends Controller {
 
     setSavingIndicator(p) {
         this.store.update('$page.saving', saving => (saving || 0) + 1);
-        p.then(()=> {
+        p.then(() => {
             this.store.update('$page.saving', saving => saving - 1);
-        }).catch(()=> {
+        }).catch(() => {
             this.store.update('$page.saving', saving => saving - 1);
         })
     }
 
     setLoadingIndicator(p) {
         this.store.update('$page.loading', loading => (loading || 0) + 1);
-        p.then(()=> {
+        p.then(() => {
             this.store.update('$page.loading', loading => loading - 1);
-        }).catch(()=> {
+        }).catch(() => {
             this.store.update('$page.loading', loading => loading - 1);
         })
     }

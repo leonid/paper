@@ -14,28 +14,28 @@
   &:after,
   &:before {
     background-color: $color;
-    transition:all .2s linear;
+    transition: all .2s linear;
     content: ' ';
     display: block;
     position: absolute;
     height: $thickness;
     left: ( $size - $icon-size ) / 2;
     right: ( $size - $icon-size ) / 2;
-    top: ($size/2) - ceil($thickness/2) ;
+    top: ($size/2) - ceil($thickness/2);
   }
   &:before {
-    box-shadow:$color 0 (-$icon-size/2 + $thickness);
+    box-shadow: $color 0 (-$icon-size/2 + $thickness);
   }
   &:after {
-    box-shadow:$color 0 ($icon-size/2) - $thickness;
+    box-shadow: $color 0 ($icon-size/2) - $thickness;
   }
 
   .css-hide-menu & {
     &:before {
-      box-shadow:$color 0 (-$icon-size/2 + $thickness + 3px);
+      box-shadow: $color 0 (-$icon-size/2 + $thickness + 3px);
     }
     &:after {
-      box-shadow:$color 0 ($icon-size/2 - $thickness - 3px);
+      box-shadow: $color 0 ($icon-size/2 - $thickness - 3px);
     }
   }
 }
@@ -50,7 +50,7 @@
   height: $size;
   position: relative;
   display: block;
-  transition:all .2s;
+  transition: all .2s;
   &:after,
   &:before {
     content: ' ';
@@ -63,11 +63,11 @@
     width: $icon-size;
     margin-top: - ceil($thickness/2);
     margin-left: - ceil($icon-size/2);
-    transition:all .3s;
+    transition: all .3s;
     transform-origin: left;
   }
   &:before {
-    transform: rotate(nth($arrow-rotation,1));
+    transform: rotate(nth($arrow-rotation, 1));
   }
   &:after {
     transform: rotate(- nth($arrow-rotation,1));

@@ -1,13 +1,13 @@
-import {Controller} from 'cx/ui/Controller';
-import {History} from 'cx/app/History';
-import {Url} from 'cx/app/Url';
-import {orders, orderItems, products} from '../api';
-import {round2} from 'app/util/round2';
-import {updateArray} from 'cx/data/ops/updateArray';
-import {append} from 'cx/data/ops/append';
+import { Controller } from 'cx/ui/Controller';
+import { History } from 'cx/app/History';
+import { Url } from 'cx/app/Url';
+import { orders, orderItems, products } from '../api';
+import { round2 } from 'app/util/round2';
+import { updateArray } from 'cx/data/ops/updateArray';
+import { append } from 'cx/data/ops/append';
 import deepEquals from 'deep-equal';
-import {diffArrays} from 'cx/data/diff/diffArrays';
-import {MsgBox} from 'cx/ui/overlay/MsgBox';
+import { diffArrays } from 'cx/data/diff/diffArrays';
+import { MsgBox } from 'cx/ui/overlay/MsgBox';
 
 export default class extends Controller {
     init() {
@@ -18,7 +18,7 @@ export default class extends Controller {
 
         this.reload();
 
-        this.store.set('layout.menu.hide',true);
+        this.store.set('layout.menu.hide', true);
 
         this.addTrigger('line-calc', ['$page.orderItems'], () => {
             this.store.update('$page.orderItems', updateArray, (item) => {
@@ -50,7 +50,7 @@ export default class extends Controller {
                 regularAmount: 0
             };
 
-            items.forEach(item=> {
+            items.forEach(item => {
                 order.totalAmount += item.totalAmount;
                 order.regularAmount += item.regularAmount;
                 order.discountAmount += item.discountAmount;
@@ -68,15 +68,15 @@ export default class extends Controller {
         var id = this.store.get('$route.id');
         if (id != 'new') {
             var promise = orders.get(id)
-                                .then(data => {
-                                    this.store.set('$page.order', data);
-                                });
+                .then(data => {
+                    this.store.set('$page.order', data);
+                });
             this.setLoadingIndicator(promise);
 
             promise = orderItems.query({orderId: id})
-                                .then(data => {
-                                    this.store.set('$page.orderItems', data);
-                                });
+                .then(data => {
+                    this.store.set('$page.orderItems', data);
+                });
             this.setLoadingIndicator(promise);
         } else {
             this.store.set('$page.order', {});
@@ -86,10 +86,10 @@ export default class extends Controller {
 
     setSavingIndicator(p) {
         this.store.update('$page.saving', saving => (saving || 0) + 1);
-        return p.then(x=> {
+        return p.then(x => {
             this.store.update('$page.saving', saving => saving - 1);
             return x;
-        }).catch(e=> {
+        }).catch(e => {
             this.store.update('$page.saving', saving => saving - 1);
             throw e;
         })
@@ -97,10 +97,10 @@ export default class extends Controller {
 
     setLoadingIndicator(p) {
         this.store.update('$page.loading', loading => (loading || 0) + 1);
-        p.then(x=> {
+        p.then(x => {
             this.store.update('$page.loading', loading => loading - 1);
             return x;
-        }).catch(e=> {
+        }).catch(e => {
             this.store.update('$page.loading', loading => loading - 1);
         })
     }
@@ -118,7 +118,7 @@ export default class extends Controller {
 
     onRemoveItem(e, {store}) {
         var id = store.get('$record.id');
-        this.store.update('$page.orderItems', items => items.filter(a=>a.id != id));
+        this.store.update('$page.orderItems', items => items.filter(a => a.id != id));
     }
 
     onSave() {
@@ -142,13 +142,13 @@ export default class extends Controller {
 
             return orderItems
                 .query({orderId: o.id})
-                .then(oldItems=> {
+                .then(oldItems => {
                     //compare items in the store with items on the server using the id field
-                    var diff = diffArrays(oldItems, items, x=>x.id);
+                    var diff = diffArrays(oldItems, items, x => x.id);
 
                     var promises = [];
 
-                    diff.added.forEach(item=> {
+                    diff.added.forEach(item => {
                         item.orderId = o.id;
                         var p = orderItems.put(item).then(newItem => {
                             this.store.update('$page.orderItems', updateArray, x => newItem, x => x == item);
@@ -157,7 +157,7 @@ export default class extends Controller {
                         promises.push(this.setSavingIndicator(p));
                     });
 
-                    diff.changed.forEach(item=> {
+                    diff.changed.forEach(item => {
                         if (!deepEquals(item.before, item.after)) {
                             var p = orderItems.post(item.after.id, item.after).then(newItem => {
                                 this.store.update('$page.orderItems', updateArray, x => newItem, x => x.id == item.after.id);
@@ -167,7 +167,7 @@ export default class extends Controller {
                         }
                     });
 
-                    diff.removed.forEach(item=> {
+                    diff.removed.forEach(item => {
                         var p = orderItems.delete(item.id, item).then(() => {
                             this.store.update('$page.orderItems', x => x.filter(a => a.id != item.id));
                         });
@@ -179,7 +179,7 @@ export default class extends Controller {
         });
 
         this.setSavingIndicator(promise)
-            .then(()=> {
+            .then(() => {
                 if (add) {
                     var url = `~/admin/orders/${this.store.get('$page.order.id')}`;
 
@@ -197,7 +197,7 @@ export default class extends Controller {
                     History.replaceState({}, null, url);
                 }
             })
-            .catch(e=> {
+            .catch(e => {
                 console.log(e);
                 MsgBox.alert({
                     title: 'Error',

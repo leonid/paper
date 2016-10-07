@@ -1,10 +1,10 @@
-import {Resource} from 'app/util/Resource';
+import { Resource } from 'app/util/Resource';
 import casual from 'app/util/casual';
-import {getComparer} from 'cx/data/comparer';
-import {dateDiff} from 'cx/util/date/dateDiff';
-import {round2} from 'app/util/round2';
-import {Grouper} from 'cx/data/Grouper';
-import {sorter} from 'cx/data/comparer';
+import { getComparer } from 'cx/data/comparer';
+import { dateDiff } from 'cx/util/date/dateDiff';
+import { round2 } from 'app/util/round2';
+import { Grouper } from 'cx/data/Grouper';
+import { sorter } from 'cx/data/comparer';
 
 var pageViews;
 
@@ -17,9 +17,9 @@ export function getPageViews(fromDate, toDate) {
 
     if (!pageViews) {
 
-        var countries = Array.from({length: 50}, ()=>casual.country);
-        var cities = Array.from({length: 100}, ()=>casual.city);
-        var referals = Array.from({length: 50}, ()=>`www.${casual.word}.com`);
+        var countries = Array.from({length: 50}, () => casual.country);
+        var cities = Array.from({length: 100}, () => casual.city);
+        var referals = Array.from({length: 50}, () => `www.${casual.word}.com`);
 
         pageViews = Array.from({length: 10000}, (_, index) => ({
             userId: casual.integer(1, 2000),
@@ -36,7 +36,7 @@ export function getPageViews(fromDate, toDate) {
         }));
     }
 
-    return pageViews.filter(x=>dateDiff(x.date, from) >= 0 && dateDiff(x.date, to) < 0);
+    return pageViews.filter(x => dateDiff(x.date, from) >= 0 && dateDiff(x.date, to) < 0);
 }
 
 export function groupBy(data, key, aggregates, value) {

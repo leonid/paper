@@ -1,7 +1,7 @@
-import {HtmlElement} from 'cx/ui/HtmlElement';
+import { HtmlElement } from 'cx/ui/HtmlElement';
 
 import Controller from './Controller';
-import {MessageLayout} from 'app/layouts/MessageLayout';
+import { MessageLayout } from 'app/layouts/MessageLayout';
 
 export default <cx>
     <div outerLayout={MessageLayout} controller={Controller}>

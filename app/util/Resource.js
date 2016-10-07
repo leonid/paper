@@ -1,8 +1,8 @@
-import {updateArray, append} from 'cx/data/ops';
+import { updateArray, append } from 'cx/data/ops';
 
 function delayedResponse(response) {
     return new Promise((resolve) => {
-        setTimeout(()=>resolve(response), Math.random() * 300);
+        setTimeout(() => resolve(response), Math.random() * 300);
     });
 }
 
@@ -21,14 +21,14 @@ export class Resource {
     }
 
     get(id) {
-        var record = this.data.find(x=>x.id == id);
+        var record = this.data.find(x => x.id == id);
         return delayedResponse(record);
     }
 
     post(id, record) {
-        this.data = updateArray(this.data, x=>({
+        this.data = updateArray(this.data, x => ({
             ...record
-        }), x=>x.id == id);
+        }), x => x.id == id);
 
         return delayedResponse({...record});
     }
@@ -48,7 +48,7 @@ export class Resource {
     }
 
     delete(id) {
-        this.data = this.data.filter(a=>a.id != id);
+        this.data = this.data.filter(a => a.id != id);
         return delayedResponse();
     }
 }

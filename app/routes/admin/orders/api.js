@@ -1,8 +1,8 @@
-import {Resource} from 'app/util/Resource';
+import { Resource } from 'app/util/Resource';
 import casual from 'app/util/casual';
-import {getComparer} from 'cx/data/comparer';
-import {diff} from 'cx/util/date/diff';
-import {round2} from 'app/util/round2';
+import { getComparer } from 'cx/data/comparer';
+import { diff } from 'cx/util/date/diff';
+import { round2 } from 'app/util/round2';
 
 var productData = Array.from({length: 200}, (_, index) => ({
     id: index + 1,
@@ -54,7 +54,7 @@ const orderData = Array.from({length: 500}, (_, index) => {
         regularAmount: 0
     };
 
-    items.forEach(item=> {
+    items.forEach(item => {
         order.totalAmount += item.totalAmount;
         order.regularAmount += item.regularAmount;
         order.discountAmount += item.discountAmount;
@@ -85,7 +85,7 @@ export const orders = new Resource(orderData);
 //these methods should be done on the server
 
 orders.newRecord = data => ({
-  orderNo: orderNo++
+    orderNo: orderNo++
 });
 
 orders.filter = (data, f) => {
@@ -98,35 +98,35 @@ orders.filter = (data, f) => {
     var checks;
 
     if (filter.orderNo != null)
-        result = result.filter(a=>a.orderNo == filter.orderNo);
+        result = result.filter(a => a.orderNo == filter.orderNo);
 
     if (filter.customer != null) {
-        checks = f.customer.split(' ').map(w=>new RegExp(w, 'gi'));
-        result = result.filter(a=>checks.every(ex=>a.customer.match(ex)));
+        checks = f.customer.split(' ').map(w => new RegExp(w, 'gi'));
+        result = result.filter(a => checks.every(ex => a.customer.match(ex)));
     }
 
     if (filter.country != null) {
-        checks = f.country.split(' ').map(w=>new RegExp(w, 'gi'));
-        result = result.filter(a=>checks.every(ex=>a.country.match(ex)));
+        checks = f.country.split(' ').map(w => new RegExp(w, 'gi'));
+        result = result.filter(a => checks.every(ex => a.country.match(ex)));
     }
 
     if (filter.city != null) {
-        checks = f.city.split(' ').map(w=>new RegExp(w, 'gi'));
-        result = result.filter(a=>checks.every(ex=>a.city.match(ex)));
+        checks = f.city.split(' ').map(w => new RegExp(w, 'gi'));
+        result = result.filter(a => checks.every(ex => a.city.match(ex)));
     }
 
     if (filter.dateFrom != null) {
         let from = new Date(filter.dateFrom);
-        result = result.filter(a=>diff(new Date(a.date), from) >= 0);
+        result = result.filter(a => diff(new Date(a.date), from) >= 0);
     }
 
     if (filter.dateTo != null) {
         let to = new Date(filter.dateTo);
-        result = result.filter(a=>diff(new Date(a.date), to) < 0);
+        result = result.filter(a => diff(new Date(a.date), to) < 0);
     }
 
     if (filter.sorters) {
-        var compare = getComparer(filter.sorters.map(x=>({value: {bind: x.field}, direction: x.direction})));
+        var compare = getComparer(filter.sorters.map(x => ({value: {bind: x.field}, direction: x.direction})));
         result.sort(compare); //simulate database sort
     }
 
@@ -145,8 +145,8 @@ products.filter = (data, f) => {
     var result = [...data];
     var checks;
     if (filter.query) {
-        checks = f.query.split(' ').map(w=>new RegExp(w, 'gi'));
-        result = result.filter(a=>checks.every(ex=>a.name.match(ex)));
+        checks = f.query.split(' ').map(w => new RegExp(w, 'gi'));
+        result = result.filter(a => checks.every(ex => a.name.match(ex)));
     }
     //return one element more than asked for paging purposes
     return result.slice((filter.page - 1) * filter.pageSize, filter.page * filter.pageSize + 1);
@@ -159,7 +159,7 @@ orderItems.filter = (data, f) => {
         ...f
     };
 
-    var result = data.filter(a=>a.orderId == filter.orderId);
+    var result = data.filter(a => a.orderId == filter.orderId);
 
     return result;
 };

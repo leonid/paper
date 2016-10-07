@@ -1,5 +1,5 @@
-import {HtmlElement} from 'cx/ui/HtmlElement';
-import {Route} from 'cx/ui/nav/Route';
+import { HtmlElement } from 'cx/ui/HtmlElement';
+import { Route } from 'cx/ui/nav/Route';
 import Todo from './todo';
 import GitHub from './github';
 

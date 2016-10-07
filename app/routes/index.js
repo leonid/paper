@@ -1,13 +1,13 @@
-import {Route} from 'cx/ui/nav/Route';
-import {RedirectRoute} from 'cx/ui/nav/RedirectRoute';
-import {PureContainer} from 'cx/ui/PureContainer';
-import {FirstVisibleChildLayout} from 'cx/ui/layout/FirstVisibleChildLayout';
-import {Sandbox} from 'cx/ui/Sandbox';
-import {HtmlElement} from 'cx/ui/HtmlElement';
+import { Route } from 'cx/ui/nav/Route';
+import { RedirectRoute } from 'cx/ui/nav/RedirectRoute';
+import { PureContainer } from 'cx/ui/PureContainer';
+import { FirstVisibleChildLayout } from 'cx/ui/layout/FirstVisibleChildLayout';
+import { Sandbox } from 'cx/ui/Sandbox';
+import { HtmlElement } from 'cx/ui/HtmlElement';
 
-import {applyOuterLayout} from 'app/layouts/dynamicLayout';
-import {MessageLayout} from 'app/layouts/MessageLayout';
-import {PageNotFound} from './PageNotFound';
+import { applyOuterLayout } from 'app/layouts/dynamicLayout';
+import { MessageLayout } from 'app/layouts/MessageLayout';
+import { PageNotFound } from './PageNotFound';
 
 import SignRoutes from './sign';
 import DemoRoutes from './demos';
@@ -18,7 +18,7 @@ import AdminRoutes from './admin';
 import Default from './default';
 import MetaRoutes from './meta';
 
-import {GAController} from '../util/ga';
+import { GAController } from '../util/ga';
 
 export default <cx>
     <Sandbox key:bind="url"
@@ -41,7 +41,7 @@ export default <cx>
             <PageNotFound />
         </PureContainer>
 
-        <Route route="~/" url:bind="url" items={Default} />
+        <Route route="~/" url:bind="url" items={Default}/>
 
         <RedirectRoute route="~/(*splat)" url:bind="url" redirect:tpl="~/sign/in?returnUrl={url:urlencode}"/>
 

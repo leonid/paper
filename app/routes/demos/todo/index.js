@@ -1,12 +1,12 @@
-import {HtmlElement} from 'cx/ui/HtmlElement';
-import {LabelTopLayout} from 'cx/ui/layout';
-import {Repeater} from 'cx/ui/Repeater';
-import {TextField} from 'cx/ui/form/TextField';
-import {Checkbox} from 'cx/ui/form/Checkbox';
-import {Button} from 'cx/ui/Button';
+import { HtmlElement } from 'cx/ui/HtmlElement';
+import { LabelTopLayout } from 'cx/ui/layout';
+import { Repeater } from 'cx/ui/Repeater';
+import { TextField } from 'cx/ui/form/TextField';
+import { Checkbox } from 'cx/ui/form/Checkbox';
+import { Button } from 'cx/ui/Button';
 import Controller from './Controller';
-import {Link} from 'cx/ui/nav/Link';
-import {applyOuterLayout} from 'app/layouts/dynamicLayout';
+import { Link } from 'cx/ui/nav/Link';
+import { applyOuterLayout } from 'app/layouts/dynamicLayout';
 
 export default <cx>
     <main>
@@ -33,7 +33,7 @@ export default <cx>
                 <ul class="csb-task-list">
                     <Repeater records:bind="$page.todos">
                         <li class="csb-task">
-                            <Checkbox class={{ "css-task-done": {bind: '$record.done'} }}
+                            <Checkbox class={{"css-task-done": {bind: '$record.done'}}}
                                       text:tpl="{$record.text}" value:bind="$record.done"/>
                             <button onClick="onRemove"/>
                         </li>

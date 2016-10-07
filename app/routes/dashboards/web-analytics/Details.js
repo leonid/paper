@@ -1,9 +1,9 @@
-import {HtmlElement} from 'cx/ui/HtmlElement';
-import {List} from 'cx/ui/List';
-import {Grid} from 'cx/ui/grid/Grid';
-import {Text} from 'cx/ui/Text';
-import {KeySelection} from 'cx/ui/selection/KeySelection';
-import {Select} from 'cx/ui/form/Select';
+import { HtmlElement } from 'cx/ui/HtmlElement';
+import { List } from 'cx/ui/List';
+import { Grid } from 'cx/ui/grid/Grid';
+import { Text } from 'cx/ui/Text';
+import { KeySelection } from 'cx/ui/selection/KeySelection';
+import { Select } from 'cx/ui/form/Select';
 
 var options = <cx>
     <option value="referral">Referral</option>
@@ -21,7 +21,7 @@ function createSlot(index) {
                     header: {
                         style: 'width: 200px',
                         items: <cx>
-                            <Select value={{bind:`$page.slots.slot${index}`}} required>
+                            <Select value={{bind: `$page.slots.slot${index}`}} required>
                                 {options}
                             </Select>
                         </cx>
@@ -29,7 +29,7 @@ function createSlot(index) {
                 },
                 {
                     field: 'value',
-                    header: {text: {tpl: '{$page.field.text}'}, style: 'width: 100px' },
+                    header: {text: {tpl: '{$page.field.text}'}, style: 'width: 100px'},
                     align: 'right',
                     format: {bind: '$page.field.format'}
                 },
